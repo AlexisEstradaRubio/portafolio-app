@@ -1,29 +1,22 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import type { ReactNode } from "react";
 
-type Theme = "light" | "dark";
+export type Theme = "light" | "dark";
 
-interface ThemeContextValue {
+export interface ThemeContextValue {
     theme: Theme;
     toggleTheme: () => void;
 }
 
-const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
-
-// function getInitialTheme(): Theme {
-//     // Respects the OS-level preference as the starting point.
-//     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-//     return prefersDark ? "dark" : "light";
-// }
+export const ThemeContext = createContext<ThemeContextValue | undefined>(undefined);
 
 const getInitialTheme = () => {
     // Respects the OS-level preference as the starting point.
     const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
     return prefersDark ? "dark" : "light";
-}
+};
 
-export const ThemeProvider = ({children}: {children: ReactNode}) => {
-
+export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     const [theme, setTheme] = useState<Theme>(getInitialTheme);
 
     // Whenever theme changes, reflect it on <html data-theme="...">
@@ -41,12 +34,4 @@ export const ThemeProvider = ({children}: {children: ReactNode}) => {
             {children}
         </ThemeContext.Provider>
     );
-}
-
-export function useTheme(): ThemeContextValue {
-    const context = useContext(ThemeContext);
-    if (context === undefined) {
-        throw new Error("useTheme must be used within a ThemeProvider");
-    }
-    return context;
-}
+};

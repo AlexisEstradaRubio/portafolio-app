@@ -1,4 +1,4 @@
-import { useTheme } from "../context/ThemeContext";
+import { useTheme } from "../context/useTheme.ts";
 import {SunIcon} from "../images/SunIcon.tsx"
 import {MoonIcon} from "../images/MoonIcon.tsx";
 
