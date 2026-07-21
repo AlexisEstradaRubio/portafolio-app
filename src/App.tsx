@@ -1,18 +1,22 @@
-import { ThemeToggle } from "./components/ThemeToggle";
-import { ComponentCard } from "./components/ComponentCard";
-import { experience } from "./data/experience";
+import { Nav } from "./components/Nav";
+import { Hero } from "./sections/Hero";
+import { About } from "./sections/About";
+import { Experience } from "./sections/Experience";
+import { Projects } from "./sections/Projects";
+import { Skills } from "./sections/Skills";
+import { Contact } from "./sections/Contact";
 
 function App() {
-  return (
-    <main className="min-h-screen bg-bg text-ink p-8 max-w-2xl mx-auto">
-      <div className="flex justify-end mb-6">
-        <ThemeToggle />
-      </div>
-      {experience.map((exp) => (
-        <ComponentCard key={exp.id} experience={exp} />
-      ))}
-    </main>
-  );
+    return (
+        <div className="min-h-screen bg-bg text-ink font-body">
+            <Nav />
+            <Hero />
+            <About />
+            <Experience />
+            <Projects />
+            <Skills />
+            <Contact />
+        </div>
+    );
 }
-
 export default App;
