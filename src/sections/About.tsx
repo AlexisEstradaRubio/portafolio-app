@@ -7,7 +7,7 @@ export const About = () => {
             </div>
             <div className="max-w-2xl flex flex-col gap-4 text-[15.5px] md:text-lg text-ink-soft">
                 <p>
-                    Frontend Engineer con <strong className="text-ink font-medium">más de 5 años de experiencia</strong> construyendo
+                    Frontend Engineer con <strong className="text-ink font-medium">más de 8 años de experiencia</strong> construyendo
                     aplicaciones web escalables y centradas en el usuario. Me especializo
                     en <strong className="text-ink font-medium">React, JavaScript y TypeScript</strong>, con un enfoque particular en
                     performance, arquitectura de componentes reutilizables y resolución

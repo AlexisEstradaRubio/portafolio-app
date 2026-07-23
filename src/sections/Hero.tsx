@@ -54,12 +54,11 @@ export const Hero = () => {
                             stack: [<span className="text-[#89B4E8]">'React'</span>, <span className="text-[#89B4E8]">'TypeScript'</span>, <span className="text-[#89B4E8]">'Gatsby'</span>],
                         </div>
                         <div className="pl-4">
-                            experience: <span className="text-[#89B4E8]">'5+ años'</span>,
+                            experience: <span className="text-[#89B4E8]">'8+ años'</span>,
                         </div>
                         <div className="pl-4 text-ink-faint">
                             // CDMX, México
                         </div>
-                        <div>{"}"};</div>
                     </div>
                 </div>
             </div>
