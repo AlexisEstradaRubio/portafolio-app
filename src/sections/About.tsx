@@ -7,17 +7,27 @@ export const About = () => {
             </div>
             <div className="max-w-2xl flex flex-col gap-4 text-[15.5px] md:text-lg text-ink-soft">
                 <p>
-                    Frontend Engineer con <strong className="text-ink font-medium">más de 8 años de experiencia</strong> construyendo
-                    aplicaciones web escalables y centradas en el usuario. Me especializo
-                    en <strong className="text-ink font-medium">React, JavaScript y TypeScript</strong>, con un enfoque particular en
-                    performance, arquitectura de componentes reutilizables y resolución
-                    de problemas técnicos complejos.
+                    Soy Frontend Engineer con más de 8 años de experiencia construyendo y evolucionando productos digitales en producción.
+                    A lo largo de mi carrera he trabajado desde dashboards especializados y productos financieros hasta plataformas digitales de alto tráfico. Mi principal experiencia está en React, TypeScript y JavaScript, pero mi trabajo va más allá de una tecnología específica.
+                    Me interesa especialmente diseñar soluciones que puedan crecer con el producto: componentes reutilizables, Design Systems, integraciones con servicios, optimización de rendimiento y arquitecturas frontend fáciles de mantener.
+                    También he participado en testing, observabilidad, analítica y experimentación, además de coordinar prioridades y acompañar técnicamente a otros desarrolladores.
+                    Mi forma de trabajar parte de una idea sencilla: <strong className="text-ink font-medium">entender primero el problema y después elegir la solución técnica adecuada.</strong>
                 </p>
                 <p>
-                    He trabajado en productos digitales de alto tráfico en producción,
-                    colaborando con equipos multidisciplinarios bajo metodologías ágiles.
-                    Actualmente en <strong className="text-ink font-medium">Caliente.mx</strong>, construyendo interfaces para productos
-                    financieros y de entretenimiento.
+                    Escalabilidad
+                    Soluciones capaces de evolucionar con el producto.
+                </p>
+                <p>
+                    Reutilización
+                    Componentes, patrones y herramientas aprovechables en distintas partes de una aplicación.
+                </p>
+                <p>
+                    Performance
+                    Rendimiento y experiencia del usuario como parte del desarrollo, no como optimización posterior.
+                </p>
+                <p>
+                    Producto
+                    Comprender el problema antes de decidir cómo resolverlo técnicamente.
                 </p>
             </div>
         </section>

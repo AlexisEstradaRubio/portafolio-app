@@ -9,21 +9,23 @@ export const Hero = () => {
                 Alexis Estrada Rubio
             </h1>
             <p className="font-display text-[clamp(17px,4.5vw,22px)] text-ink-soft font-medium mb-8">
-                Frontend Engineer — React &amp; TypeScript
+                Frontend Engineer — React & TypeScript
             </p>
 
             <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center">
                 <div>
+                    <p className="text-[20px]">
+                        Construyo frontend que puede crecer.
+                    </p>
                     <p className="text-ink-soft text-[15px] md:text-base max-w-[420px]">
-                        Construyo interfaces escalables para productos de alto tráfico en
-                        producción, y resuelvo los problemas técnicos que nadie ve: renders
-                        de más, conexiones que fallan, componentes que se pisan entre apps.
+                        Más de 8 años construyendo y evolucionando productos digitales en producción, desde dashboards y aplicaciones financieras hasta plataformas de alto tráfico.
+                        Me especializo en desarrollar soluciones frontend escalables, integrar servicios, optimizar rendimiento y crear experiencias que puedan mantenerse y evolucionar junto con el producto.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-2.5 mt-6">
 
                         <a href="#proyectos"
                             className="font-mono text-sm px-4.5 py-3 min-h-11 rounded-md bg-accent text-inverse-text flex items-center justify-center text-center">
-                            Ver proyectos
+                            Ver casos de estudio
                         </a>
 
                         <a href="#"
@@ -51,13 +53,13 @@ export const Hero = () => {
                             role: <span className="text-[#89B4E8]">'Frontend Engineer'</span>,
                         </div>
                         <div className="pl-4">
-                            stack: [<span className="text-[#89B4E8]">'React'</span>, <span className="text-[#89B4E8]">'TypeScript'</span>, <span className="text-[#89B4E8]">'Gatsby'</span>],
+                            stack: [<span className="text-[#89B4E8]">'React'</span>, <span className="text-[#89B4E8]">'TypeScript'</span>],
                         </div>
                         <div className="pl-4">
-                            experience: <span className="text-[#89B4E8]">'8+ años'</span>,
+                            focus: [<span className="text-[#89B4E8]">'Architecture'</span>, <span className="text-[#89B4E8]">'Performance'</span>, <span className="text-[#89B4E8]">'Product'</span>],
                         </div>
-                        <div className="pl-4 text-ink-faint">
-                            // CDMX, México
+                        <div className="pl-4">
+                            experience: <span className="text-[#89B4E8]">'8+ years'</span>,
                         </div>
                     </div>
                 </div>
