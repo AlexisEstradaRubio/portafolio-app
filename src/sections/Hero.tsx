@@ -10,6 +10,7 @@ export const Hero = () => {
             </h1>
             <p className="font-display text-[clamp(17px,4.5vw,22px)] text-ink-soft font-medium mb-8">
                 Frontend Engineer — React & TypeScript
+                
             </p>
 
             <div className="grid md:grid-cols-[1.1fr_1fr] gap-8 md:gap-12 items-center">
