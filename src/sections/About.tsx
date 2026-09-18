@@ -14,6 +14,7 @@ export const About = () => {
                     Mi forma de trabajar parte de una idea sencilla: <strong className="text-ink font-medium">entender primero el problema y después elegir la solución técnica adecuada.</strong>
                 </p>
                 <p>
+                    
                     Escalabilidad
                     Soluciones capaces de evolucionar con el producto.
                 </p>
