@@ -9,6 +9,7 @@ import { Contact } from "./sections/Contact";
 function App() {
     return (
         <div className="min-h-screen bg-bg text-ink font-body">
+
             <Nav />
             <Hero />
             <About />
