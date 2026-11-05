@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { ThemeContext } from "./ThemeContext";
-import type { ThemeContextValue } from "./ThemeContext";
+import { ThemeContext } from "./theme";
+import type { ThemeContextValue } from "./theme";
 
 // Custom hook: components call useTheme() instead of useContext(ThemeContext)
 // directly, so they get a typed value and a clear error if used outside the provider.

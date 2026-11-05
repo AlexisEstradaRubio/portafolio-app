@@ -1,70 +1,96 @@
-import {useState} from "react";
-import {ThemeToggle} from "./ThemeToggle";
+import { useEffect, useState } from "react";
+import { ThemeToggle } from "./ThemeToggle";
+import { InspectToggle } from "./InspectToggle";
+import { Inspectable } from "./Inspectable";
+import { profile } from "../data/profile";
 
 const navLinks = [
-    {href: "#sobre-mi", label: "Sobre mí"},
-    {href: "#experiencia", label: "Experiencia"},
-    {href: "#proyectos", label: "Proyectos"},
-    {href: "#habilidades", label: "Habilidades"},
-    {href: "#contacto", label: "Contacto"},
+    { href: "#sobre-mi", label: "Sobre mí" },
+    { href: "#experiencia", label: "Experiencia" },
+    { href: "#casos-de-estudio", label: "Casos de estudio" },
+    { href: "#habilidades", label: "Habilidades" },
+    { href: "#contacto", label: "Contacto" },
 ];
+
+const MENU_ID = "mobile-menu";
 
 export const Nav = () => {
     const [isOpen, setIsOpen] = useState(false);
-
     const closeMenu = () => setIsOpen(false);
 
+    useEffect(() => {
+        if (!isOpen) return;
+        const onKeyDown = (event: KeyboardEvent) => {
+            if (event.key === "Escape") setIsOpen(false);
+        };
+        window.addEventListener("keydown", onKeyDown);
+        return () => window.removeEventListener("keydown", onKeyDown);
+    }, [isOpen]);
+
     return (
-        <nav className="sticky top-0 z-10 bg-bg/90 backdrop-blur-md border-b border-line">
-            <div className="max-w-3xl mx-auto px-5 flex justify-between items-center py-3.5 md:py-4.5">
-        <span className="font-mono text-sm font-medium">
-          alexis<span className="text-accent">.</span>dev
-        </span>
+        <Inspectable as="header" name="Nav" tagPlacement="below" className="sticky top-0 z-30">
+            <a
+                href="#contenido"
+                className="sr-only focus:not-sr-only focus:absolute focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-ink focus:px-4 focus:py-2 focus:text-bg"
+            >
+                Saltar al contenido
+            </a>
+            {/* Background lives on the bar and the menu separately so each can have its own transparency. */}
+            <div className="border-b border-line bg-bg/92 backdrop-blur-md">
+                <nav aria-label="Principal" className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3 md:px-8">
+                    <a href="#inicio" className="text-sm font-bold tracking-tight">
+                        {profile.name}
+                    </a>
 
-                <div className="flex items-center gap-2.5">
-                    <ThemeToggle/>
-
-                    {/* Hamburger button — only visible below md breakpoint */}
-                    <button
-                        onClick={() => setIsOpen((prev) => !prev)}
-                        aria-label="Abrir menú"
-                        aria-expanded={isOpen}
-                        className="md:hidden flex items-center justify-center w-10 h-10 border border-line rounded-md text-ink"
-                    >
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round"
-                             className="w-[18px] h-[18px]">
-                            <line x1="3" y1="6" x2="21" y2="6"/>
-                            <line x1="3" y1="12" x2="21" y2="12"/>
-                            <line x1="3" y1="18" x2="21" y2="18"/>
-                        </svg>
-                    </button>
-
-                    {/* Desktop links — hidden below md, always visible from md up */}
-                    <div className="hidden md:flex gap-7 font-mono text-[13px] text-ink-soft">
-                        {navLinks.map((link) => (
-                            <a key={link.href} href={link.href}>
-                                {link.label}
-                            </a>
-                        ))}
+                    <div className="flex items-center gap-2">
+                        <ul className="mr-3 hidden items-center gap-6 text-sm font-medium text-ink-soft lg:flex">
+                            {navLinks.map((link) => (
+                                <li key={link.href}>
+                                    <a href={link.href} className="py-2 transition-colors hover:text-ink">
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                        <InspectToggle />
+                        <ThemeToggle />
+                        <button
+                            type="button"
+                            onClick={() => setIsOpen((prev) => !prev)}
+                            aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+                            aria-expanded={isOpen}
+                            aria-controls={MENU_ID}
+                            className="flex h-10 w-10 items-center justify-center rounded-md border border-line text-ink lg:hidden"
+                        >
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} strokeLinecap="round" aria-hidden="true" className="h-[18px] w-[18px]">
+                                {isOpen ? (
+                                    <path d="M6 6l12 12M18 6 6 18" />
+                                ) : (
+                                    <path d="M3 6h18M3 12h18M3 18h18" />
+                                )}
+                            </svg>
+                        </button>
                     </div>
-                </div>
+                </nav>
             </div>
 
-            {/* Mobile dropdown panel — only rendered when isOpen is true, and only below md */}
-            {isOpen && (
-                <div className="md:hidden flex flex-col font-mono text-sm text-ink-soft px-5 pb-4 border-t border-line">
-                    {navLinks.map((link) => (
-                        <a
-                            key={link.href}
-                            href={link.href}
-                            onClick={closeMenu}
-                            className="py-3 border-b border-line last:border-none"
-                        >
+            <Inspectable
+                as="ul"
+                name="MobileMenu"
+                detail={`open={${isOpen}}`}
+                tagPlacement="inside"
+                id={MENU_ID}
+                hidden={!isOpen}
+                className="border-b border-line bg-bg/70 px-5 pb-3 font-medium backdrop-blur-xl lg:hidden"
+            >
+                {navLinks.map((link) => (
+                    <li key={link.href}>
+                        <a href={link.href} onClick={closeMenu} className="block border-b border-line/70 py-3.5 last:border-none">
                             {link.label}
                         </a>
-                    ))}
-                </div>
-            )}
-        </nav>
+                    </li>
+                ))}
+            </Inspectable>
+        </Inspectable>
     );
 };

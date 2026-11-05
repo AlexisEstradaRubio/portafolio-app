@@ -22,3 +22,11 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Private working files: full CVs (with phone number) and profile notes.
+# Only the public CVs in public/cv/ are published with the site.
+/cv/
+/perfil-homologado.md
+
+# Local Claude Code settings
+.claude/
