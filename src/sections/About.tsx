@@ -1,25 +1,20 @@
+import { Section } from "../components/Section";
+import { about } from "../data/profile";
+
 export const About = () => {
     return (
-        <section id="sobre-mi" className="max-w-3xl mx-auto px-5 py-11 md:py-18 border-t border-line">
-            <div className="flex items-baseline gap-3 mb-6 md:mb-9">
-                <span className="font-mono text-xs text-ink-faint">01</span>
-                <h2 className="font-display text-[clamp(22px,5.5vw,28px)] font-semibold">Sobre mí</h2>
+        <Section id="sobre-mi" title="Sobre mí" inspectName="About">
+            <div className="max-w-[38rem] space-y-5 text-lg text-ink-soft">
+                {about.paragraphs.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                ))}
             </div>
-            <div className="max-w-2xl flex flex-col gap-4 text-[15.5px] md:text-lg text-ink-soft">
-                <p>
-                    Frontend Engineer con <strong className="text-ink font-medium">más de 8 años de experiencia</strong> construyendo
-                    aplicaciones web escalables y centradas en el usuario. Me especializo
-                    en <strong className="text-ink font-medium">React, JavaScript y TypeScript</strong>, con un enfoque particular en
-                    performance, arquitectura de componentes reutilizables y resolución
-                    de problemas técnicos complejos.
-                </p>
-                <p>
-                    He trabajado en productos digitales de alto tráfico en producción,
-                    colaborando con equipos multidisciplinarios bajo metodologías ágiles.
-                    Actualmente en <strong className="text-ink font-medium">Caliente.mx</strong>, construyendo interfaces para productos
-                    financieros y de entretenimiento.
-                </p>
-            </div>
-        </section>
+            <figure className="mt-10 max-w-[38rem] border-l-4 border-accent pl-5">
+                <blockquote className="text-xl font-semibold text-ink text-pretty">
+                    <p>{about.principle}</p>
+                </blockquote>
+                <figcaption className="mt-2 text-sm text-ink-soft">Mi forma de trabajar</figcaption>
+            </figure>
+        </Section>
     );
 };

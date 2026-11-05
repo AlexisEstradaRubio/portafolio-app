@@ -1,75 +1,66 @@
-# React + TypeScript + Vite
+# Portafolio — Alexis Estrada Rubio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Professional portfolio of Alexis Estrada Rubio, Frontend Engineer (React, TypeScript, JavaScript).
+The site content is in Spanish; code and technical documentation are in English.
 
-Currently, two official plugins are available:
+**Live site:** https://alexisestradarubio.github.io/portafolio-app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Features
 
-## React Compiler
+- Single-page layout with anchored sections: about, experience, case studies, skills and contact.
+- **Component view:** a toggle that outlines every React component on the page with its name and props, to show how the site is composed.
+- Light and dark themes, saved in `localStorage` and applied before first paint.
+- CV downloads in Spanish and English.
+- Accessible by default: semantic landmarks, skip link, visible focus states, keyboard-operable menus and `prefers-reduced-motion` support.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Tech stack
 
-## Expanding the ESLint configuration
+- [React 19](https://react.dev) with TypeScript
+- [Vite](https://vite.dev) for development and builds
+- [Tailwind CSS 4](https://tailwindcss.com) with design tokens defined as CSS variables in `src/index.css`
+- ESLint (typescript-eslint, react-hooks, react-refresh)
+- GitHub Actions + GitHub Pages for deployment
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Getting started
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Requirements: Node.js 22 or later.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The dev server serves the site under the GitHub Pages base path: http://localhost:5173/portafolio-app/
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Scripts
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+| Command | Description |
+|---|---|
+| `npm run dev` | Start the Vite dev server |
+| `npm run build` | Type-check and build for production into `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run lint` | Run ESLint |
+
+## Deployment
+
+Every push to `master` runs `.github/workflows/deploy.yml`, which builds the site and publishes `dist/` to GitHub Pages.
+The base path `/portafolio-app/` is set in `vite.config.ts`.
+
+## Project structure
 
 ```
+public/
+  cv/                 Downloadable CV files (Spanish and English)
+  favicon.svg
+  og-image.png        Social preview image (1200×630)
+src/
+  components/         Reusable UI: Nav, Section, CvDownload, Inspectable, toggles…
+  context/            Theme and component-view state (context, provider, hook)
+  data/               All page content, separated from the UI
+  images/             Icon components
+  sections/           One component per page section
+  types/              Content types
+  index.css           Design tokens, type scale and base styles
+```
+
+To update the content (experience, case studies, skills, links), edit the files in `src/data/`. The sections render whatever those files contain.

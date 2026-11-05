@@ -2,9 +2,50 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alexis Estrada Rubio — Frontend Engineer</title>
+    <title>Alexis Estrada Rubio | Frontend Engineer</title>
+    <meta
+      name="description"
+      content="Frontend Engineer con más de 8 años de experiencia en React, TypeScript, arquitectura frontend, Design Systems y performance, construyendo productos digitales escalables y aplicaciones en producción."
+    />
+    <link rel="canonical" href="https://alexisestradarubio.github.io/portafolio-app/" />
+    <meta name="theme-color" content="#eef1f2" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#13181a" media="(prefers-color-scheme: dark)" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="es_MX" />
+    <meta property="og:site_name" content="Alexis Estrada Rubio" />
+    <meta property="og:title" content="Alexis Estrada Rubio — Frontend Engineer" />
+    <meta
+      property="og:description"
+      content="Construyo frontend que puede crecer. React, TypeScript, arquitectura frontend, performance y productos digitales en producción."
+    />
+    <meta property="og:url" content="https://alexisestradarubio.github.io/portafolio-app/" />
+    <meta property="og:image" content="https://alexisestradarubio.github.io/portafolio-app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Alexis Estrada Rubio, Frontend Engineer. Construyo frontend que puede crecer." />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Apply the saved theme before first paint to avoid a flash of the wrong theme. -->
+    <script>
+      (function () {
+        var theme;
+        try { theme = localStorage.getItem('theme'); } catch (e) {}
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', theme);
+      })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400..900&family=JetBrains+Mono:wght@500&display=swap"
+    />
   </head>
   <body>
     <div id="root"></div>

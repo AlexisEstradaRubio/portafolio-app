@@ -11,6 +11,7 @@ interface SunIconProps {
 export const SunIcon = ({isDark}: SunIconProps) => {
     return (
         <svg
+            aria-hidden="true"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
